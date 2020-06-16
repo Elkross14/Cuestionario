@@ -25,7 +25,7 @@
                 <h1>Ejemplo de JavaScript:</h1>
                 <div class="pregunta">
                     <p>¿Pregunta a responder?</p>
-                    <div class="opciones btn-group-vertical">
+                    <div class="opciones btn-group-vertical" id="opciones">
                         <p>
                             <button type="button" class="btn btn-secondary btn-lg btn-block"
                                 onclick="comprobarRespuesta('p11', 'p11')" id="p11">Texto de la respuesta A.</button>
@@ -44,10 +44,10 @@
                         </p>
                     </div><!-- opciones -->
                 </div><!-- Pregunta -->
-                <p class="text-right mt-5">
-                    <button type="button" class="btn btn-secondary" onclick="comprobarRespuesta('p11', 'p14')">Texto de
-                        la respuesta D.</button>
-                </p>
+            </div>
+            <div class="col-6 text-left mt-5" id="respuesta">
+            </div>
+            <div class="col-6 text-right mt-5" id="boton">
             </div>
         </div>
 
@@ -55,17 +55,36 @@
     <script>
 
         function comprobarRespuesta(correcta, seleccionada) {
+            var divRespuesta = document.getElementById("respuesta");
+            var respuesta = " ";
 
+            var divBoton = document.getElementById("boton");
+            var boton = "<button type='button' class='btn btn-secondary'>Siguiente</button>";
+
+            //comprobar si ha acertado
             if (correcta == seleccionada) {
-                document.getElementById(seleccionada).style.color = "#55A454";
-                var b = document.querySelector("button");
 
-                b.setAttribute("name", "helloButton");
-                b.setAttribute("disabled", "");
+                document.getElementById(seleccionada).style.color = "#55A454";
+
+                respuesta = "<p class='text-primary'>La respuesta es correcta</p>";
+
             } else {
+
                 document.getElementById(seleccionada).style.color = "#A45454";
                 document.getElementById(correcta).style.color = "#55A454";
+
+                respuesta = "<p class='text-danger'>La respuesta es incorrecta</p>";
             }
+
+            //deshabilitar botones
+            var nodes = document.getElementById("opciones").getElementsByTagName('*');
+            for (var i = 0; i < nodes.length; i++) {
+                nodes[i].disabled = true;
+            }
+
+            //devolver respuesta
+            divRespuesta.innerHTML = respuesta;
+            divBoton.innerHTML = boton;
         }
     </script>
 </body>
