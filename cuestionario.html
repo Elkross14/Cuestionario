@@ -1,92 +1,193 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Ejemplo de JavaScript: corrigiendo un test de radio buttons</title>
+    <title>cuestionario - Pablo Durán</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="custom template">
+    <meta name="author" content="Xiaoying Riley and Pablo Durán">
+    <link rel="shortcut icon" href="img/icon.png">
+
 
     <!-- FontAwesome CSS-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-    <!--Bootstrap + custom theme -->
+    <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="css/app.min.css">
 
-    <script type="text/javascript">
-//aquí la solución
-    </script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>Ejemplo de JavaScript:</h1>
-                <div class="pregunta">
-                    <p>¿Pregunta a responder?</p>
-                    <div class="opciones btn-group-vertical" id="opciones">
-                        <p>
-                            <button type="button" class="btn btn-secondary btn-lg btn-block"
-                                onclick="comprobarRespuesta('p11', 'p11')" id="p11">Texto de la respuesta A.</button>
-                        </p>
-                        <p>
-                            <button type="button" class="btn btn-secondary btn-lg btn-block"
-                                onclick="comprobarRespuesta('p11', 'p12')" id="p12">Texto de la respuesta B.</button>
-                        </p>
-                        <p>
-                            <button type="button" class="btn btn-secondary btn-lg btn-block"
-                                onclick="comprobarRespuesta('p11', 'p13')" id="p13">Texto de la respuesta C.</button>
-                        </p>
-                        <p>
-                            <button type="button" class="btn btn-secondary btn-lg btn-block"
-                                onclick="comprobarRespuesta('p11', 'p14')" id="p14">Texto de la respuesta D.</button>
-                        </p>
-                    </div><!-- opciones -->
-                </div><!-- Pregunta -->
-            </div>
-            <div class="col-6 text-left mt-5" id="respuesta">
-            </div>
-            <div class="col-6 text-right mt-5" id="boton">
-            </div>
-        </div>
 
+    <!-- Sidebar -->
+    <header class="header text-center scroll">
+        <h1 class="blog-name pt-lg-4 mb-0 d-block d-lg-none"><a href="index.html">Pablo Durán</a></h1>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navigation" class="collapse navbar-collapse flex-column">
+                <div class="profile-section pt-3 pt-lg-0">
+                    <img class="profile-image mb-3 rounded-circle mx-auto"
+                        src="http://pabloduran.test/images/profile.png" alt="image">
+
+                    <div class="bio mb-3">¡Hola! Mi nombre es Pablo y soy desarollador web. Estoy encantado de que
+                        visites mi página web.</div>
+                    <!--//bio-->
+                    <ul class="social-list list-inline py-3 mx-auto">
+                        <li class="list-inline-item"><a href="https://twitter.com/pabloduran1997" target="_blank"><i
+                                    class="fab fa-twitter fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/pablo-dur%C3%A1n/"
+                                target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="https://github.com/Elkross14" target="_blank"><i
+                                    class="fab fa-github-alt fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/elkross97/" target="_blank"><i
+                                    class="fab fa-instagram fa-fw"></i></a></li>
+                        <!-- <li class="list-inline-item"><a href="#"><i class="fab fa-codepen fa-fw"></i></a></li>-->
+                    </ul>
+                    <!--//social-list-->
+                    <hr>
+                </div>
+                <!--//profile-section-->
+
+                <ul class="navbar-nav flex-column text-left">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="http://pabloduran.test/index"><i
+                                class="fas fa-home fa-fw mr-2"></i>Inicio<span class="sr-only">(Página
+                                Actual)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="http://pabloduran.test/skills"><i
+                                class="fas fa-edit fa-fw mr-2"></i>Aptitudes</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="http://pabloduran.test/experience"><i
+                                class="fas fa-hard-hat fa-fw mr-2"></i>Experiencia</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="http://pabloduran.test/blog"><i
+                                class="fas fa-project-diagram fa-fw mr-2"></i>Proyectos</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="http://pabloduran.test/meteo"><i
+                                class="fas fa-chart-bar fa-fw mr-2"></i>Meteo</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="http://pabloduran.test/contactme"><i
+                                class="fas fa-envelope fa-fw mr-2"></i>Contactame</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--//sidebar-->
+    <div class="main-wrapper">
+
+
+        <!--content-->
+
+        <!--bloque cuestionario-->
+        <section id="quiz" class="p-3 p-lg-4 ">
+            <div id="quizDiv" class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="pb-2">JavaScript</h2>
+                        <div id="pregunta" class="m-3 question"></div><!-- //Pregunta -->
+                        <div id="respuesta" class="m-3"></div><!-- //Respuesta -->
+                    </div>
+                    <div class="col-6 text-left mt-5 fade-in-fwd" id="mensaje">
+                    </div>
+                    <div class="col-6 text-right mt-5 fade-in-fwd" id="boton">
+                        <button type='button' class='btn btn-primary' onclick='siguientePregunta()'>Siguiente</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--//bloque cuestionario-->
+
+        <!--bloque final-->
+        <section id="final" class="p-3 p-lg-4">
+            <div id="finalDiv" class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3>Felicidades has terminado el cuestionario</h3>
+                        <div class="text-center m-4">
+                            <img src="img/undraw_winners.svg" class="size50" alt="image">
+                        </div>
+                        <div class="row my-3 text-center fade-in-bottom">
+                            <div class="col-6 quiz-titulo-puntos">Aciertos</div>
+                            <div class="col-6 quiz-titulo-puntos">Fallos</div>
+                            <div id="aciertos" class="col-6 quiz-puntos"></div>
+                            <div id="fallos" class="col-6 quiz-puntos"></div>
+                        </div>
+                    </div>
+
+                    <!-- buttons -->
+                    <div class="col-12 col-md-4 fade-in-bottom">
+                        <nav class="blog-nav nav nav-justified my-2">
+                            <a class="nav-link-next nav-item nav-link rounded" href="http://pabloduran.test/blog/quiz">
+                                <i class="fas fa-arrow-alt-circle-right mr-2"></i>Ver post del proyecto
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="col-12 col-md-4 fade-in-bottom">
+                        <nav class="blog-nav nav nav-justified my-2">
+                            <a class="nav-link-next nav-item nav-link rounded"
+                                href="https://github.com/Elkross14/Cuestionario" target="_blank">
+                                <i class="fas fa-arrow-alt-circle-right mr-2"></i>Ver proyecto en github
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="col-12 col-md-4 fade-in-bottom">
+                        <nav class="blog-nav nav nav-justified my-2">
+                            <a class="nav-link-next nav-item nav-link rounded" href="quizselector.html">
+                                <i class="fas fa-arrow-alt-circle-right mr-2"></i>hacer otro cuestionario
+                            </a>
+                        </nav>
+                    </div>
+                    <!-- //
+                buttons -->
+                </div>
+            </div>
+        </section>
+        <!--//bloque final-->
+        <!--//content-->
+
+        <footer class="footer text-center py-2 theme-bg-dark">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Designed by <a href="https://pabloduran.es" target="_blank">Pablo Durán</a> with <a
+                    href="https://getbootstrap.com/" target="_blank">Bootstrap</a> and <a
+                    href="https://themes.3rdwavemedia.com/bootstrap-templates/personal/devblog-free-bootstrap-4-blog-template-for-developers/"
+                    target="_blank">DevBlog theme</a>.</small>
+        </footer>
     </div>
-    <script>
+    <!--//main-wrapper-->
 
-        function comprobarRespuesta(correcta, seleccionada) {
-            var divRespuesta = document.getElementById("respuesta");
-            var respuesta = " ";
 
-            var divBoton = document.getElementById("boton");
-            var boton = "<button type='button' class='btn btn-secondary'>Siguiente</button>";
+    <!-- Javascript -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
-            //comprobar si ha acertado
-            if (correcta == seleccionada) {
 
-                document.getElementById(seleccionada).style.color = "#55A454";
+    <script type="text/javascript">
+        //datos que te devolveria el servidor
+        var preguntasObjeto = [{ "pregunta": "\u00bfDentro de qu\u00e9 elemento HTML ponemos el JavaScript?", "id": 1 }, { "pregunta": "\u00bfCu\u00e1l es la sintaxis correcta de JavaScript para cambiar el contenido del elemento HTML que hay a continuaci\u00f3n?\u003Cbr\u003E\u0026#60;p id=\u0026#34;demo\u0026#34;\u0026#62;Esto es una demostraci\u00f3n\u0026#60;\/p\u0026#62;", "id": 2 }, { "pregunta": "\u00bfCu\u00e1l es el lugar correcto para insertar JavaScript?", "id": 3 }, { "pregunta": "\u00bfCu\u00e1l es la sintaxis para referirte a un script externo llamado \u0026#34;xxx.js\u0026#34;?", "id": 4 }, { "pregunta": "Un archivo de JavaScript debe de estar entre etiquetas \u0026#60;script\u0026#62;", "id": 5 }, { "pregunta": "Como escribir\u00edas \u0026#34;\u00a1Hola Mundo!\u0026#34; en una caja de alerta?", "id": 6 }, { "pregunta": "\u00bfComo crear\u00edas una funci\u00f3n en JavaScript?", "id": 7 }, { "pregunta": "\u00bfComo llamar\u00edas a una funci\u00f3n llamada \u0026#34;myFunction\u0026#34;?", "id": 8 }, { "pregunta": "\u00bfComo se escribe una sentencia IF en JavaScript?", "id": 9 }, { "pregunta": "\u00bfComo se escribe una sentencia IF para ejecutar alg\u00fan c\u00f3digo que no sea igual a 5?", "id": 10 }];
+        var respuestasObjeto = [{ "idPregunta": 1, "idRespuesta": 1, "respuesta": "\u0026#60;script\u0026#62;" }, { "idPregunta": 1, "idRespuesta": 2, "respuesta": "\u0026#60;scripting\u0026#62;" }, { "idPregunta": 1, "idRespuesta": 3, "respuesta": "\u0026#60;javascript\u0026#62;" }, { "idPregunta": 1, "idRespuesta": 4, "respuesta": "\u0026#60;js\u0026#62;" }, { "idPregunta": 2, "idRespuesta": 5, "respuesta": "document.getElementByName (\u0026#34;p\u0026#34;).innerHTML \u0026#61; \u0026#34\u00a1Hola mundo!\u0026#34;" }, { "idPregunta": 2, "idRespuesta": 6, "respuesta": "#demo.innerHTML \u0026#61; \u0026#34;\u00a1Hola mundo!\u0026#34;;" }, { "idPregunta": 2, "idRespuesta": 7, "respuesta": "document.getElementById (\u0026#34;demo\u0026#34;).innerHTML \u0026#61; \u0026#34\u00a1Hola mundo!\u0026#34;" }, { "idPregunta": 2, "idRespuesta": 8, "respuesta": "document.getElement (\u0026#34;p\u0026#34;).innerHTML \u0026#61; \u0026#34\u00a1Hola mundo!\u0026#34;" }, { "idPregunta": 3, "idRespuesta": 9, "respuesta": "En la secci\u00f3n \u0026#60;body\u0026#62;" }, { "idPregunta": 3, "idRespuesta": 10, "respuesta": "En la secci\u00f3n \u0026#60;head\u0026#62;" }, { "idPregunta": 3, "idRespuesta": 11, "respuesta": "Tanto en \u0026#60;body\u0026#62; como en \u0026#60;head\u0026#62;" }, { "idPregunta": 4, "idRespuesta": 12, "respuesta": "\u0026#60;script src=\u0026#34;xxx.js\u0026#34;\u0026#62;" }, { "idPregunta": 4, "idRespuesta": 13, "respuesta": "\u0026#60;script href=\u0026#34;xxx.js\u0026#34;\u0026#62;" }, { "idPregunta": 4, "idRespuesta": 14, "respuesta": "\u0026#60;script name=\u0026#34;xxx.js\u0026#34;\u0026#62;" }, { "idPregunta": 5, "idRespuesta": 15, "respuesta": "Falso" }, { "idPregunta": 5, "idRespuesta": 16, "respuesta": "Verdadero" }, { "idPregunta": 6, "idRespuesta": 17, "respuesta": "alert(\u0026#34;\u00a1Hola Mundo!\u0026#34;);" }, { "idPregunta": 6, "idRespuesta": 18, "respuesta": "msgBox(\u0026#34;\u00a1Hola Mundo!\u0026#34;);" }, { "idPregunta": 6, "idRespuesta": 19, "respuesta": "msg(\u0026#34;\u00a1Hola Mundo!\u0026#34;);" }, { "idPregunta": 6, "idRespuesta": 20, "respuesta": "alertBox(\u0026#34;\u00a1Hola Mundo!\u0026#34;);" }, { "idPregunta": 7, "idRespuesta": 21, "respuesta": "function:myFunction()" }, { "idPregunta": 7, "idRespuesta": 22, "respuesta": "function myFunction()" }, { "idPregunta": 7, "idRespuesta": 23, "respuesta": "function \u0026#61; myFunction()" }, { "idPregunta": 8, "idRespuesta": 24, "respuesta": "call myFunction()" }, { "idPregunta": 8, "idRespuesta": 25, "respuesta": "myFunction()" }, { "idPregunta": 8, "idRespuesta": 26, "respuesta": "call function myFunction()" }, { "idPregunta": 9, "idRespuesta": 27, "respuesta": "if i = 5" }, { "idPregunta": 9, "idRespuesta": 28, "respuesta": "if i = 5 then" }, { "idPregunta": 9, "idRespuesta": 29, "respuesta": "if i == 5 then" }, { "idPregunta": 9, "idRespuesta": 30, "respuesta": "if (i == 5)" }, { "idPregunta": 10, "idRespuesta": 31, "respuesta": "if (i != 5)" }, { "idPregunta": 10, "idRespuesta": 32, "respuesta": "if (i \u003C\u003E 5)" }, { "idPregunta": 10, "idRespuesta": 33, "respuesta": "if i \u003C\u003E 5" }, { "idPregunta": 10, "idRespuesta": 34, "respuesta": "if i =! 5 then" }];
+        var respuestasCorrectasObjeto = [{ "idPregunta": 1, "idRespuesta": 1, "respuesta": "\u0026#60;script\u0026#62;" }, { "idPregunta": 2, "idRespuesta": 7, "respuesta": "document.getElementById (\u0026#34;demo\u0026#34;).innerHTML \u0026#61; \u0026#34\u00a1Hola mundo!\u0026#34;" }, { "idPregunta": 3, "idRespuesta": 11, "respuesta": "Tanto en \u0026#60;body\u0026#62; como en \u0026#60;head\u0026#62;" }, { "idPregunta": 4, "idRespuesta": 12, "respuesta": "\u0026#60;script src=\u0026#34;xxx.js\u0026#34;\u0026#62;" }, { "idPregunta": 5, "idRespuesta": 15, "respuesta": "Falso" }, { "idPregunta": 6, "idRespuesta": 17, "respuesta": "alert(\u0026#34;\u00a1Hola Mundo!\u0026#34;);" }, { "idPregunta": 7, "idRespuesta": 22, "respuesta": "function myFunction()" }, { "idPregunta": 8, "idRespuesta": 25, "respuesta": "myFunction()" }, { "idPregunta": 9, "idRespuesta": 30, "respuesta": "if (i == 5)" }, { "idPregunta": 10, "idRespuesta": 31, "respuesta": "if (i != 5)" }];
 
-                respuesta = "<p class='text-primary'>La respuesta es correcta</p>";
-
-            } else {
-
-                document.getElementById(seleccionada).style.color = "#A45454";
-                document.getElementById(correcta).style.color = "#55A454";
-
-                respuesta = "<p class='text-danger'>La respuesta es incorrecta</p>";
-            }
-
-            //deshabilitar botones
-            var nodes = document.getElementById("opciones").getElementsByTagName('*');
-            for (var i = 0; i < nodes.length; i++) {
-                nodes[i].disabled = true;
-            }
-
-            //devolver respuesta
-            divRespuesta.innerHTML = respuesta;
-            divBoton.innerHTML = boton;
-        }
     </script>
+
+    <!-- Script con el funcionamiento del cuestionario-->
+    <script src="js/quiz.js"></script>
 </body>
 
 </html>
