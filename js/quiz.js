@@ -20,6 +20,7 @@ function siguientePregunta() {
 
         ejecutarFinalTest();
 
+    //mostrará la siguiente pregunta con sus respuestas
     } else {
 
         //obtener pregunta
