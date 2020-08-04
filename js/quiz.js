@@ -1,14 +1,27 @@
-var contador = 0;
-var correctas = 0;
-var incorrectas = 0;
-var sinContestar = 0;
+/**
+ * Contiene todo lo necesario para que funcione el cuestionario.
+ * Nos irá mostrando las preguntas de forma individual y corregirá cada pregunta
+ * una vez respondida o si el tiempo para responder se ha excedido.
+ * 
+ * @author Pabloduran.es <developer@pabloduran.es>
+ * @version 2.0.1
+ * 
+ * Última actualización:
+ *  -Se ha añadido la eliminacion de la clase error al método iniciarCuentaAtras()
+ *  -Se ha eliminado la necesidad de la varible timer en el método InicialCuentaAtras()
+ */
+
+var contador = 0;  //nos dirá por qué pregunta vamos
+var correctas = 0;  //sumará uno cada vez que acertemos una pregunta
+var incorrectas = 0;  //sumará uno cada vez que se falle una pregunta
+var sinContestar = 0;  //se sumará uno cada dez que pase el tiempo para responder de una pregutna
 var porcentajeAvanzado = 100 / preguntasObjeto.length;//porcentaje de la barra que tiene que aumentar con cada pregunta
 var porcentajeHecho = porcentajeAvanzado;//porcentaje total de preguntas hechas
-var temporizador;
+var temporizador;  //se utiliza para reiniciar el contador con cada pregunta
 
-const totalTime = 60;
+const TOTAL_TIME = 60; //tiempo del que dispone el usuario para responder cada pregunta
 
-window.onload = iniciarScript;
+window.onload = iniciarScript;  //iniciará todo el script cuando la página haya cargado
 
 
 /**
@@ -213,12 +226,11 @@ function mostrarAnswerBlock(type) {
  */
 function iniciarCuentaAtras() {
 
-    var timer = totalTime;
-
+    document.getElementById("temporizador").classList.remove("error");
     document.getElementById("temporizador").classList.remove("gray-light");
     document.getElementById("temporizador").classList.add("success");
 
-    actualizarCuentaAtras(timer);
+    actualizarCuentaAtras(TOTAL_TIME);
 
 }
 
@@ -236,6 +248,13 @@ function actualizarCuentaAtras(timer) {
 
     if (timer == 0) {
 
+        //coge la respuesta correcta de la pregunta que estamos viendo
+        var idRespuestaCorrecta = respuestasCorrectasObjeto[contador - 1].idRespuesta;
+
+        //marca cual era la opción correcta
+        document.getElementById(idRespuestaCorrecta).classList.remove("btn-outline-secondary");
+        document.getElementById(idRespuestaCorrecta).classList.add("btn-success");
+
         deshabilitarBotones("respuesta");
         quitarColoresAnswerBlock();
         mostrarAnswerBlock("timeOut");
@@ -244,7 +263,7 @@ function actualizarCuentaAtras(timer) {
 
     } else {
 
-        if (timer <= 15) {
+        if (timer == 15) {//pasar a rojo la cuenta atrás
 
             document.getElementById("temporizador").classList.remove("success");
             document.getElementById("temporizador").classList.add("error");
@@ -252,6 +271,7 @@ function actualizarCuentaAtras(timer) {
 
         timer--;
 
+        //ejecutará mismo método una vez haya pasado un segundo
         temporizador = setTimeout(function () { actualizarCuentaAtras(timer) }, 1000);
     }
 }
